@@ -13,7 +13,7 @@ import os
 import time
 
 #打开数据库连接
-db = mysqldb.connect("127.0.0.1","root","easytech","easyweb")
+db = mysqldb.connect("127.0.0.1","root","xxx","xxxx")
 #得到一个可以执行SQL语句的游标对象
 cursor = db.cursor()
 	
@@ -27,7 +27,7 @@ def check_union_available(union_table_name,union_table_shcema):
 		res = '1'
 	except:
 		#发送报警邮件/send warning email.
-		com="/usr/bin/sendEmail -o tls=no -f yunweisend@jiandan100.cn -s 192.168.1.250 -u \' table "+union_table_name+" on mysql-server 181 is anavailable \' -xu yunweisend@jiandan100.cn -xp \"YWEasytech456\" -t tianzhaofeng@jiandan100.cn -m \" do the union_table manually  To troubleshoot the problem!!!\""
+		com="/usr/bin/sendEmail -o tls=no -f xxxx@xxxx.cn -s 192.168.1.250 -u \' table "+union_table_name+" on mysql-server 181 is anavailable \' -xu xxxx@jiandan100.cn -xp \"Yxxxxx456\" -t xxxx@jxxx100.cn -m \" do the union_table manually  To troubleshoot the problem!!!\""
 		print (com)
 		os.system(com)
 		res ='0'
@@ -111,7 +111,7 @@ def main_listen():
 	union_table_schema="easyweb"
 	#任务逻辑，如果有新表建立，则执行之后的操作，否则退出。
 	#打开数据库连接
-	db = mysqldb.connect("127.0.0.1","root","easytech","easyweb")
+	db = mysqldb.connect("127.0.0.1","xxx","xxxx","xxx")
 	#得到一个可以执行SQL语句的游标对象
 	cursor = db.cursor()
 	
@@ -128,7 +128,7 @@ def main_listen():
 			change_table_stru(union_table_schema)
 			update_table_stru(union_table,union_table_schema)
 			res = "union_table W_ListenRec succeed."
-			com="/usr/bin/sendEmail -o tls=no -f yunweisend@jiandan100.cn -s 192.168.1.250 -u \' table "+table_name+" on mysql-server 181 is uninoned \' -xu yunweisend@jiandan100.cn -xp \"YWEasytech456\" -t tianzhaofeng@jiandan100.cn -m \" union table succeed!!!\""
+			com="/usr/bin/sendEmail -o tls=no -fxxxx@xxx.cn -s 192.168.1.250 -u \' table "+table_name+" on mysql-server 181 is uninoned \' -xu xxxx@xxxx.cn -xp \"xxxx\" -t xxxg@xxxx.cn -m \" union table succeed!!!\""
 			os.system(com)
 		else:
 			res = "nothind to do for W_ListenRec."
@@ -142,7 +142,7 @@ def main_interaction():
 	union_table = "W_UserInteractionData"
 	union_table_schema = "easyweb_bigdata"
 	#打开数据库连接
-	db = mysqldb.connect("127.0.0.1","root","easytech","easyweb_bigdata")
+	db = mysqldb.connect("127.0.0.1","root","xxx","xxxx")
 	#得到一个可以执行SQL语句的游标对象
 	cursor = db.cursor()
 
